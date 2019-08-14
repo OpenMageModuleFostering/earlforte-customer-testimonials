@@ -1,3 +1,10 @@
+<?php
+$enable = Mage::getStoreConfig('testimonial/status/enabled');
+$output = Mage::getStoreConfig('advanced/modules_disable_output/Ravi_Testimonials');
+
+if($output == 0 && $enable == 1){
+
+?>
 <link href="<?php echo $this->getSkinUrl('testimonials/css/testimonial.css'); ?>" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('testimonials/js/jquery-1.7.2.min.js'); ?>"></script>
@@ -106,3 +113,4 @@ $i++;
 				
 			});
 		</script>	
+<?php } ?>

@@ -7,7 +7,7 @@ class Ravi_Testimonials_Adminhtml_TestimonialController extends Mage_Adminhtml_C
 				$this->loadLayout()->_setActiveMenu("testimonials/testimonial")->_addBreadcrumb(Mage::helper("adminhtml")->__("Testimonial  Manager"),Mage::helper("adminhtml")->__("Testimonial Manager"));
 				return $this;
 		}
-		public function indexAction() 
+		public function indexAction()
 		{
 			    $this->_title($this->__("Testimonials"));
 			    $this->_title($this->__("Manager Testimonial"));
@@ -16,11 +16,11 @@ class Ravi_Testimonials_Adminhtml_TestimonialController extends Mage_Adminhtml_C
 				$this->renderLayout();
 		}
 		public function editAction()
-		{			    
+		{
 			    $this->_title($this->__("Testimonials"));
 				$this->_title($this->__("Testimonial"));
 			    $this->_title($this->__("Edit Item"));
-				
+
 				$id = $this->getRequest()->getParam("id");
 				$model = Mage::getModel("testimonials/testimonial")->load($id);
 				Mage::dispatchEvent('testimonial_save_before', $model);
@@ -33,7 +33,7 @@ class Ravi_Testimonials_Adminhtml_TestimonialController extends Mage_Adminhtml_C
 					$this->getLayout()->getBlock("head")->setCanLoadExtJs(true);
 					$this->_addContent($this->getLayout()->createBlock("testimonials/adminhtml_testimonial_edit"))->_addLeft($this->getLayout()->createBlock("testimonials/adminhtml_testimonial_edit_tabs"));
 					$this->renderLayout();
-				} 
+				}
 				else {
 					Mage::getSingleton("adminhtml/session")->addError(Mage::helper("testimonials")->__("Item does not exist."));
 					$this->_redirect("*/*/");
@@ -81,7 +81,7 @@ class Ravi_Testimonials_Adminhtml_TestimonialController extends Mage_Adminhtml_C
 
 					try {
 
-						
+
 				 //save image
 		try{
 
@@ -102,7 +102,7 @@ else {
 				$model = Mage::getModel("testimonials/testimonial")->load($this->getRequest()->getParam("id"));
 				if($model->getData('photo')){
 						$io = new Varien_Io_File();
-						$io->rm(Mage::getBaseDir('media').DS.implode(DS,explode('/',$model->getData('photo'))));	
+						$io->rm(Mage::getBaseDir('media').DS.implode(DS,explode('/',$model->getData('photo'))));
 				}
 			}
 						$path = Mage::getBaseDir('media') . DS . 'testimonials' . DS .'testimonial'.DS;
@@ -131,7 +131,7 @@ else {
 						->addData($post_data)
 						->setId($this->getRequest()->getParam("id"))
 						->save();
-						
+
 						$lastId = $this->getRequest()->getParam("id");
 
 						Mage::dispatchEvent('testimonial_save_after', $post_data);
@@ -145,7 +145,7 @@ else {
 						}
 						$this->_redirect("*/*/");
 						return;
-					} 
+					}
 					catch (Exception $e) {
 						Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
 						Mage::getSingleton("adminhtml/session")->setTestimonialData($this->getRequest()->getPost());
@@ -167,7 +167,7 @@ else {
 						$model->setId($this->getRequest()->getParam("id"))->delete();
 						Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("Item was successfully deleted"));
 						$this->_redirect("*/*/");
-					} 
+					}
 					catch (Exception $e) {
 						Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
 						$this->_redirect("*/*/edit", array("id" => $this->getRequest()->getParam("id")));
@@ -176,7 +176,7 @@ else {
 				$this->_redirect("*/*/");
 		}
 
-		
+
 		public function massRemoveAction()
 		{
 			try {
@@ -192,7 +192,7 @@ else {
 			}
 			$this->_redirect('*/*/');
 		}
-			
+
 		/**
 		 * Export order grid to CSV format
 		 */
@@ -201,7 +201,7 @@ else {
 			$fileName   = 'testimonial.csv';
 			$grid       = $this->getLayout()->createBlock('testimonials/adminhtml_testimonial_grid');
 			$this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
-		} 
+		}
 		/**
 		 *  Export order grid to Excel XML format
 		 */
