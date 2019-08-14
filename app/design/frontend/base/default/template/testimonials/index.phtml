@@ -1,6 +1,11 @@
 <?php 
 session_start();
 ?>
+<?php
+$model = Mage::getModel('testimonials/test');
+	$data = $model->getCollection()->getData();
+	print_r($data);
+?>
 <form action="<?php echo $this->getAddtestimonialUrl() ?>" method="post" id="add-testimonial" enctype="multipart/form-data">
 
 <script type="text/javascript">

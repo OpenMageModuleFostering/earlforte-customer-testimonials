@@ -36,7 +36,7 @@ if (!Mage::helper('cms/page')->renderPage($pageId)) {
                 "title" => $this->__("Add Testimonial")
 		   ));
 
-      $this->renderLayout(); 
+      $this->renderLayout();
 	}
     }
 }

@@ -39,6 +39,8 @@
 		<class>Ravi_Testimonials_Model</class>
 		<resourceModel>testimonials_mysql4</resourceModel>
 	  </testimonials>
+
+
 	  <testimonials_mysql4>
 		<class>Ravi_Testimonials_Model_Mysql4</class>
 		<entities>		  
@@ -46,9 +48,16 @@
 				<table>testimonials</table>
 			  </testimonial>
 		</entities>
+          <entities>
+              <test>
+                  <table>test</table>
+              </test>
+          </entities>
+
 	  </testimonials_mysql4>
 	</models>
 	<resources>
+
 	  <testimonials_setup>
 		<setup>
 		  <module>Ravi_Testimonials</module>
