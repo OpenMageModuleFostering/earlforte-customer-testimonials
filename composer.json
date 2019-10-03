@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/earlforte-customer-testimonials",
+    "name": "openmage-module-fostering\/earlforte-customer-testimonials",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Customer testimonial extension will useful for writing testimonials of your Customer who are happy, unhappy with your services and giving them additional discount on next purchase.",
     "authors": [
